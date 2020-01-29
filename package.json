@@ -1,0 +1,103 @@
+{
+  "name": "pure-fns",
+  "version": "0.0.0",
+  "files": [
+    "index.js",
+    "fns"
+  ],
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "lint": "spudly-scripts lint",
+    "prepare": "npm run build",
+    "test": "jest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": [
+        "spudly-scripts pre-commit"
+      ],
+      "commit-msg": [
+        "spudly-scripts commit-msg"
+      ]
+    }
+  },
+  "prettier": {
+    "bracketSpacing": false,
+    "endOfLine": "lf",
+    "proseWrap": "always",
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "eslintConfig": {
+    "extends": "@spudly"
+  },
+  "eslintIgnore": [
+    "node_modules",
+    "build"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
+    "@spudly/scripts": "^1.0.2",
+    "@types/jest": "^25.1.0",
+    "@types/node": "^13.5.0",
+    "husky": "^4.2.1",
+    "typescript": "^3.7.5"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
+      "@babel/preset-typescript"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.js",
+      "**/*.jsx",
+      "!**/node_modules/**"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/build/",
+      "[.]config[.]js",
+      "/coverage/",
+      "[.]stories[.]"
+    ],
+    "globals": {
+      "ts-jest": {
+        "isolatedModules": true
+      }
+    },
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/*.test.[jt]s?(x)"
+    ],
+    "testPathIgnorePatterns": [
+      "build",
+      "[.]stories[.]"
+    ],
+    "transform": {
+      "^.+\\.(j|t)sx?$": "babel-jest"
+    },
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ],
+    "watchPathIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ]
+  }
+}
