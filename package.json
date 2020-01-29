@@ -9,7 +9,6 @@
   "main": "index.js",
   "scripts": {
     "lint": "spudly-scripts lint",
-    "prepare": "npm run build",
     "test": "jest"
   },
   "husky": {
