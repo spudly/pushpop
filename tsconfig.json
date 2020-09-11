@@ -6,7 +6,7 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "strict": true,
-    "target": "esnext",
+    "target": "es2019",
     "lib": ["ESNext"],
     "rootDir": "src",
     "outDir": "build"

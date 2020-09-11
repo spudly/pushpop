@@ -9,18 +9,12 @@ const chunk = <ITEM>(
   chunkSize: number,
   allItems: Array<ITEM>,
 ): Array<Array<ITEM>> => {
-  const chunks = [];
-  let items = [];
-  for (const item of allItems) {
-    items.push(item);
-    if (items.length === chunkSize) {
-      chunks.push(items);
-      items = [];
-    }
-  }
-  if (items.length) {
-    chunks.push(items);
-  }
+  const chunks: Array<Array<ITEM>> = [];
+  allItems.forEach((item, index) => {
+    const chunkIndex = Math.floor(index / chunkSize);
+    const chunk = (chunks[chunkIndex] = chunks[chunkIndex] ?? []);
+    chunk.push(item);
+  });
   return chunks;
 };
 
