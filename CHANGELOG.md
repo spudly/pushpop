@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/spudly/pushpop/compare/v2.1.0...v2.1.1) (2020-09-11)
+
+
+### Bug Fixes
+
+* **npm:** include build dir in npm package ([1df7bcc](https://github.com/spudly/pushpop/commit/1df7bcc3d9ae57e229a812f9926201e6d0fad4aa))
+
 # [2.1.0](https://github.com/spudly/pushpop/compare/v2.0.0...v2.1.0) (2020-09-11)
 
 
