@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/spudly/pushpop/compare/v2.0.0...v2.1.0) (2020-09-11)
+
+
+### Features
+
+* **fns:** add compareBy, get, isNil, isNotNil, not, pick, and unique ([c5a196e](https://github.com/spudly/pushpop/commit/c5a196e3e25a26395a1762010bd9d3d8b8714e36))
+
 # [2.0.0](https://github.com/spudly/pushpop/compare/v1.0.0...v2.0.0) (2020-09-11)
 
 
