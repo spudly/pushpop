@@ -3,7 +3,7 @@
     "allowJs": true,
     "checkJs": true,
     "esModuleInterop": true,
-    "module": "ESNext",
+    "module": "commonjs",
     "moduleResolution": "Node",
     "strict": true,
     "target": "es2019",
