@@ -9,6 +9,7 @@
     "build": "tsc -d",
     "depcheck": "depcheck --ignores=\",@commitlint/*,@types/*,commitlint,prettier,pretty-quick,sort-package-json,typescript,semantic-release,@semantic-release/*\"",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "prepare": "npm run build",
     "test": "jest"
   },
   "husky": {
