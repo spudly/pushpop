@@ -1,5 +1,12 @@
-export {default as chunk} from './chunk/chunk.js';
-export {default as diff} from './diff/diff.js';
-export {default as first} from './first/first.js';
-export {default as last} from './last/last.js';
-export {default as omit} from './omit/omit.js';
+export {default as chunk} from './chunk/chunk';
+export {default as compareBy} from './compareBy/compareBy';
+export {default as diff} from './diff/diff';
+export {default as first} from './first/first';
+export {default as get} from './get/get';
+export {default as isNil} from './isNil/isNil';
+export {default as isNotNil} from './isNotNil/isNotNil';
+export {default as last} from './last/last';
+export {default as not} from './not/not';
+export {default as omit} from './omit/omit';
+export {default as pick} from './pick/pick';
+export {default as unique} from './unique/unique';
