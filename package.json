@@ -1,6 +1,6 @@
 {
   "name": "@spudly/pushpop",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "main": "build/index.js",
   "files": [
     "build"

@@ -1,3 +1,10 @@
+## [2.1.3](https://github.com/spudly/pushpop/compare/v2.1.2...v2.1.3) (2020-09-11)
+
+
+### Bug Fixes
+
+* **build:** compile to commonjs ([67a1f8b](https://github.com/spudly/pushpop/commit/67a1f8b0395002c6c5a6d08c984614919dbabbf9))
+
 ## [2.1.2](https://github.com/spudly/pushpop/compare/v2.1.1...v2.1.2) (2020-09-11)
 
 
