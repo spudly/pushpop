@@ -2,12 +2,14 @@
   "compilerOptions": {
     "allowJs": true,
     "checkJs": true,
-    "noEmit": true,
     "esModuleInterop": true,
     "module": "ESNext",
     "moduleResolution": "Node",
     "strict": true,
     "target": "esnext",
-    "lib": ["ESNext"]
-  }
+    "lib": ["ESNext"],
+    "rootDir": "src",
+    "outDir": "build"
+  },
+  "exclude": ["**/*.test.ts"]
 }

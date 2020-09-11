@@ -1,8 +1,8 @@
-import omitKeys from './omitKeys';
+import omit from './omit';
 
 test('omits specified keys from an object', () => {
   expect(
-    omitKeys(['a', 'b', 'c'], {
+    omit(['a', 'b', 'c'], {
       a: 1,
       b: 2,
       c: 3,

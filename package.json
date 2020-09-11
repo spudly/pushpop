@@ -1,25 +1,44 @@
 {
-  "name": "pure-fns",
+  "name": "@spudly/pushpop",
   "version": "0.0.0",
+  "main": "build/index.js",
   "files": [
     "index.js",
     "fns"
   ],
-  "type": "module",
-  "main": "index.js",
   "scripts": {
-    "lint": "spudly-scripts lint",
+    "build": "tsc -d",
+    "depcheck": "depcheck --ignores=\",@commitlint/*,@types/*,commitlint,prettier,pretty-quick,sort-package-json,typescript\"",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test": "jest"
   },
   "husky": {
     "hooks": {
       "pre-commit": [
-        "spudly-scripts pre-commit"
+        "npm run lint && npm run depcheck && npm run test && lint-staged"
       ],
       "commit-msg": [
-        "spudly-scripts commit-msg"
+        "commitlint -E HUSKY_GIT_PARAMS"
       ]
     }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{md,htm,html,css}": [
+      "prettier --write"
+    ],
+    "package.json": [
+      "sort-package-json",
+      "prettier --write"
+    ]
   },
   "prettier": {
     "bracketSpacing": false,
@@ -35,31 +54,6 @@
     "node_modules",
     "build"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "devDependencies": {
-    "@babel/preset-env": "^7.8.3",
-    "@babel/preset-typescript": "^7.8.3",
-    "@spudly/scripts": "^1.0.2",
-    "@types/jest": "^25.1.0",
-    "@types/node": "^13.5.0",
-    "husky": "^4.2.1",
-    "typescript": "^3.7.5"
-  },
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
-      ],
-      "@babel/preset-typescript"
-    ]
-  },
   "jest": {
     "collectCoverageFrom": [
       "**/*.ts",
@@ -80,6 +74,7 @@
         "isolatedModules": true
       }
     },
+    "preset": "ts-jest",
     "testEnvironment": "node",
     "testMatch": [
       "**/*.test.[jt]s?(x)"
@@ -88,15 +83,50 @@
       "build",
       "[.]stories[.]"
     ],
-    "transform": {
-      "^.+\\.(j|t)sx?$": "babel-jest"
-    },
+    "watchPathIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
     "watchPlugins": [
       "jest-watch-typeahead/filename",
       "jest-watch-typeahead/testname"
-    ],
-    "watchPathIgnorePatterns": [
-      "<rootDir>/node_modules/"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-conventional": "^9.1.2",
+    "@spudly/eslint-config": "^6.0.0",
+    "@types/jest": "^26.0.13",
+    "@types/node": "^14.10.0",
+    "depcheck": "^1.2.0",
+    "husky": "^4.3.0",
+    "jest": "^26.4.2",
+    "jest-watch-typeahead": "^0.6.1",
+    "lint-staged": "^10.3.0",
+    "prettier": "^2.1.1",
+    "sort-package-json": "^1.44.0",
+    "ts-jest": "^26.3.0",
+    "typescript": "^4.0.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/github",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json",
+            "CHANGELOG.md"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ]
     ]
   }
 }
