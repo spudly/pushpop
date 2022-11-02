@@ -12,8 +12,9 @@ const chunk = <ITEM>(
   const chunks: Array<Array<ITEM>> = [];
   allItems.forEach((item, index) => {
     const chunkIndex = Math.floor(index / chunkSize);
-    const chunk = (chunks[chunkIndex] = chunks[chunkIndex] ?? []);
-    chunk.push(item);
+    chunks[chunkIndex] = chunks[chunkIndex] ?? [];
+    const currentChunk = chunks[chunkIndex];
+    currentChunk.push(item);
   });
   return chunks;
 };

@@ -5,14 +5,13 @@
  * @param keys - An array of keys to include in the new object
  * @returns A function that returns a new object with only the specified keys
  */
-const pick = <K extends string | number | symbol>(keys: Array<K>) => <
-  SOURCE extends Record<K, any>
->(
+const pick = <SOURCE extends {}, KEYS extends keyof SOURCE>(
+  keys: Array<KEYS>,
   source: SOURCE,
-): Pick<SOURCE, K> =>
+): Pick<SOURCE, KEYS> =>
   keys.reduce((prev, key) => ({...prev, [key]: source[key]}), {}) as Pick<
     SOURCE,
-    K
+    KEYS
   >;
 
 export default pick;
